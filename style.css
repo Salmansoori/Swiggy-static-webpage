@@ -73,3 +73,156 @@ header{
     padding-left: 10px;
     width: 150px;
 }
+.offer{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    float: right;
+    margin-top: 4%;
+    margin-right: 6%;
+    width: 280px;
+    height: 100px;
+}
+.offer-head{
+    background-color: inherit;
+}
+.offer-type{
+    padding: 2%;
+}
+.search{
+    width: 55%;
+    font-size: 20px;
+    margin-left: 378px;
+    margin-top: -5%;
+}
+.search-bar{
+    /*float: left; */
+    width: 40%;
+}
+input[type=text] {
+    width: 200px;
+    padding: 12px 20px;
+    border: none;
+    background-color: white;
+    font-size: 17px;
+}
+.veg-dish{
+    background-color: white;
+    float: left;
+    width: 18%;
+    margin-left: 270px;
+    margin-top: -44px;
+    height: 40px;
+    text-align: center;
+    padding-top: 1%;
+}
+.fav-dish{
+    float: right;
+    background-color: white;
+    width: 20%;
+    margin-right: 190px;
+    margin-top: -44px;
+    height: 40px;
+    text-align: center;
+    padding-top: 1%;
+}
+.recommended-menu{
+    width: 240px;
+}
+
+.menu{
+    padding: 30px 30px 0 35px;
+    flex:2;
+    width: 500px;
+    margin-right: 37%;
+    float: right;
+}
+.menu h1 ,.cart h1{
+    font-size: 30px;
+    color: #171A29;
+}
+.dish{
+    margin-top: 40px;
+    padding: 25px 0;
+    border-bottom: 1.5px #F6F6F7 solid;
+}
+
+.item-name{
+    font-size: 16px;
+    padding: 15px;
+    padding-left: 0;
+}
+.item-price{
+    font-size: 15px;
+}
+.item-desc{
+    padding-top: 10px;
+    width: 440px;
+}
+.item-pic{
+    float:right;
+    margin-top: -35%;
+    margin-right: -20%;
+}
+.item-add{
+    margin-left: 15%;
+    margin-top: -27%;
+    width: 100px;
+    height: 40px;
+}
+.item-pic img{
+    margin-top: 20px;
+}
+.item-pic button{
+    width: 100px;
+    height: 40px;
+}
+footer{
+    background-color: black;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.img{
+    padding: 20px 0;
+    text-align: center;
+    flex:1;  
+}
+
+.cart{
+    float: right;
+    width: 350px;
+    margin-top: -700px;
+}
+.cart-head{
+    padding-bottom: 6% ;
+}
+.cart-desc{
+    padding-top: 10%;
+    width: 280px;
+}
+
+
+footer img{
+    width:140px;
+}
+footer p{
+    padding: 20px 0;
+    text-align: center;
+    flex:1;
+    color: white;
+}
+.socials{
+    flex:1;
+}
+footer ul{
+    padding: 20px 120px;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+footer ul li{
+    flex:1;
+}
+footer ul li img {
+    width:27px;
+}
