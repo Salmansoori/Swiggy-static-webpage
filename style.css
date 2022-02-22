@@ -5,31 +5,28 @@
 header{
     padding: 30px;
     height: 15px;
+    display: table;
+    width: 97%;
+   /* table-layout: fixed; */
+    min-width: 1200px;
    /* box-shadow: 0px 25px #e9e4e4; */
 }
-.home{
-    background-color: #e9e4e4;
-    font-size: 11px;
-    align-items: center;
-    padding: 7px;
-}
-.home a{
-    text-decoration: none;
-    color: black;
-    margin-left: 16%;
-}
 .left-nav {
+    display: table-cell;
     float: left;
     height: 30px;
-    margin-left: 14%;
+    width:40% ;
+    margin-left: 12.5%;
 }
 .left-nav a{
     text-decoration: none;
     color: black;
 }
 .right-nav{
+    display: table-cell;
     float: right;
-    margin-right: 14%;
+    margin-right: 6%;
+    width: 20%;
 }
 .right-nav li{
     float: left;
@@ -58,19 +55,46 @@ header{
     height: 50px;
     margin-top: -17px;
 }
-.jumbotron{
-    margin-top: 0px;
-    padding: 10px;
+.home{
+    background-color: #e9e4e4;
+    font-size: 11px;
+    align-items: center;
+    padding: 7px;
+    min-width: 1200px;
+}
+.home a{
+    text-decoration: none;
+    color: black;
+    margin-left: 15%;
+}
+.restaurant-header{
     background-color: #272324;
-    height: 220px;
+    height: 235px;
+}
+.jumbotron{
+    display: table;
+    margin: 0 17% 0 17% ;
+    table-layout: fixed;
+   /* background-color: #272324; */
     color: white;
+    height: 100%;
+    max-width: 1200px;
+    min-width: 1200px;
+    position: relative;
+    margin: 0 auto;
 }
 .res-img{
+    display: table-cell;
     float: left;
-    margin-left: 16%;
-    padding-top: 8px;
+   /* margin-left: 16%; */
+    padding-top: 35px;
+}
+.res-img img{
+    width: 260px;
+    height: 165px; 
 }
 .restaurant{
+    display: table-cell;
     float: left;
     padding:35px;
 }
@@ -95,11 +119,13 @@ header{
     width: 150px;
 }
 .offer{
+    display: table-cell;
     border: 1px solid rgba(255, 255, 255, 0.3);
     float: right;
-    margin-top: 4%;
-    margin-right: 16%;
-    width: 280px;
+    vertical-align: top;
+    margin-top: 6%;
+    margin-right: 2%;
+    width: 25%;
     height: 100px;
 }
 .offer-head{
@@ -117,7 +143,7 @@ header{
     width: 538px;
     height: 40px;
     font-size: 20px;
-    margin-left: 580px;
+    margin-left: 24.5%;
     margin-top: -2%;
 }
 .search-bar{
@@ -171,11 +197,21 @@ input[type=checkbox] {
     color: red;
     cursor: pointer;
 }
+.menu-section{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+}
 .recommended-menu{
-    width: 260px;
+    display: table-cell;
+    width: 25%;
     list-style: none;
-    margin-top: 2%;
-    margin-left: 15%;
+    margin-top: 3%;
+    margin-left: -4%;
     text-decoration: none;
     display: inline-block;
 }
@@ -202,10 +238,10 @@ input[type=checkbox] {
 .menu{
     border-left: 1px solid rgba(0,0,0,.2);
     padding: 0px 30px 0 40px;
-    flex:2;
+    display: table-cell;
     margin-top: 0%;
-    width: 500px;
-    margin-right: 35%;
+    width: 42%;
+    margin-right: 31%;
     float: right;
     overflow-y: auto;
     height: 800px;
@@ -286,9 +322,10 @@ footer{
 }
 
 .cart{
+    display: table-cell;
     float: right;
-    margin-right: -55%;
-    width: 320px;
+    margin-right: -83%;
+    width: 30%;
     margin-top: 40px;
 }
 .cart-head{
@@ -298,6 +335,7 @@ footer{
 .cart-desc{
     padding-top: 10%;
     width: 280px;
+    color: rgba(40,44,63,.45);
 }
 
 

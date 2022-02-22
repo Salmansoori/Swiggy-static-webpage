@@ -27,8 +27,8 @@ menuSection = [
         ]
     },
     {
-        id:"platters",
-        name:"platters",
+        id:"starters",
+        name:"starters",
         menulist: [
             {
             id:"vp",
@@ -54,35 +54,8 @@ menuSection = [
         ]
     },
     {
-        id:"recommended",
-        name:"recommended",
-        menulist: [
-            {
-            id:"vp",
-            name:"Veg Platter",
-            cost:"799",
-            desc:"An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
-            img:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
-            },
-            {
-                id:"vp",
-                name:"Veg Platter",
-                cost:"799",
-                desc:"An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
-                img:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
-            },
-            {
-                    id:"vp",
-                    name:"Veg Platter",
-                    cost:"799",
-                    desc:"An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
-                    img:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
-            },
-        ]
-    },
-    {
-        id:"recommended",
-        name:"recommended",
+        id:"main course",
+        name:"main course",
         menulist: [
             {
             id:"vp",
@@ -113,8 +86,8 @@ menuSection = [
 
 
 let recommendedList = document.getElementById("rec");
-console.log(recommendedList)
 let menulist = document.getElementById("menu")
+
 function createSectionElementForRecList(section){
     const a = document.createElement('a');
     const text = document.createTextNode(section.name);
@@ -122,24 +95,24 @@ function createSectionElementForRecList(section){
     a.href = "#"+section.id;
     const newRecItem = document.createElement('li');
     newRecItem.appendChild(a);
-    console.log(newRecItem);
+    //console.log(newRecItem);
     recommendedList.appendChild(newRecItem)
-    const minuItem = document.createElement('div');
+    const menuItem = document.createElement('div');
 
-    const minuItemChild = document.createElement('div');
-    const minuItemChildHead = document.createElement('div');
+    const menuItemChild = document.createElement('div');
+    const menuItemChildHead = document.createElement('div');
     const itemHead = document.createElement('h1');
     const itemHeadText = document.createTextNode(section.name);
     itemHead.appendChild(itemHeadText);
     const itemCount = document.createElement('p');
     const itemCountText = document.createTextNode(section.menulist.length);
     itemCount.appendChild(itemCountText);
-    minuItemChildHead.appendChild(itemHead);
-    minuItemChildHead.appendChild(itemCount);
-    minuItemChild.appendChild(minuItemChildHead);
-    console.log(minuItemChild);
-    minuItemChild.classList.add("item-head");
-
+    menuItemChildHead.appendChild(itemHead);
+    menuItemChildHead.appendChild(itemCount);
+    menuItemChild.appendChild(menuItemChildHead);
+    //console.log(menuItemChild);
+    menuItemChild.classList.add("item-head");
+    menuItemChild.setAttribute('id',section.id)
     for( let itemInd=0; itemInd< section.menulist.length; itemInd++){
     
     const newDish = document.createElement('div');
@@ -186,15 +159,15 @@ function createSectionElementForRecList(section){
     newDish.appendChild(newDishItemPic)
     newDish.classList.add("dish")
 
-    minuItemChild.appendChild(newDish)
+    menuItemChild.appendChild(newDish)
     };
-    console.log(menulist)
-    menulist.appendChild(minuItemChild)
+    //console.log(menulist)
+    menulist.appendChild(menuItemChild)
 
 }
 
 for(let ind=0; ind<menuSection.length; ind++){
     const section = menuSection[ind];
-    console.log(section);
-    const sectionElement = createSectionElementForRecList(section);
+    //console.log(section);
+    createSectionElementForRecList(section);
 }
