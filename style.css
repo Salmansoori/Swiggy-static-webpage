@@ -4,13 +4,32 @@
 }
 header{
     padding: 30px;
-    box-shadow: 5px 10px #e9e4e4;
+    height: 15px;
+   /* box-shadow: 0px 25px #e9e4e4; */
+}
+.home{
+    background-color: #e9e4e4;
+    font-size: 11px;
+    align-items: center;
+    padding: 7px;
+}
+.home a{
+    text-decoration: none;
+    color: black;
+    margin-left: 16%;
 }
 .left-nav {
     float: left;
+    height: 30px;
+    margin-left: 14%;
+}
+.left-nav a{
+    text-decoration: none;
+    color: black;
 }
 .right-nav{
     float: right;
+    margin-right: 14%;
 }
 .right-nav li{
     float: left;
@@ -28,7 +47,7 @@ header{
     color: black;
     text-decoration: none;
 }
-.right-nav a:hover{
+.right-nav a:hover, .left-nav a:hover{
     color: orange;
 } 
 .left-nav a{
@@ -40,14 +59,16 @@ header{
     margin-top: -17px;
 }
 .jumbotron{
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 10px;
-    background-color: black;
-    height: 200px;
+    background-color: #272324;
+    height: 220px;
     color: white;
 }
 .res-img{
-    float: left
+    float: left;
+    margin-left: 16%;
+    padding-top: 8px;
 }
 .restaurant{
     float: left;
@@ -77,28 +98,35 @@ header{
     border: 1px solid rgba(255, 255, 255, 0.3);
     float: right;
     margin-top: 4%;
-    margin-right: 6%;
+    margin-right: 16%;
     width: 280px;
     height: 100px;
 }
 .offer-head{
-    background-color: inherit;
+    background-color: #272324;
+    width: 70px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: -10px;
+    margin-left: -5px;
 }
 .offer-type{
     padding: 2%;
 }
 .search{
-    width: 55%;
+    width: 538px;
+    height: 40px;
     font-size: 20px;
-    margin-left: 378px;
-    margin-top: -5%;
+    margin-left: 580px;
+    margin-top: -2%;
 }
 .search-bar{
     /*float: left; */
-    width: 40%;
+    width: 254px;
+    height: 40px;
 }
 input[type=text] {
-    width: 200px;
+    width: 220px;
     padding: 12px 20px;
     border: none;
     background-color: white;
@@ -107,60 +135,129 @@ input[type=text] {
 .veg-dish{
     background-color: white;
     float: left;
-    width: 18%;
-    margin-left: 270px;
-    margin-top: -44px;
+    width: 20%;
+    margin-left: 287px;
+    margin-top: 0px;
     height: 40px;
     text-align: center;
     padding-top: 1%;
+    color: black;
 }
 .fav-dish{
     float: right;
+    margin-right: 2%;
     background-color: white;
     width: 20%;
-    margin-right: 190px;
-    margin-top: -44px;
+    color: black;
+    margin-top: 0px;
     height: 40px;
     text-align: center;
     padding-top: 1%;
 }
-.recommended-menu{
-    width: 240px;
-}
-
-.menu{
-    padding: 30px 30px 0 35px;
-    flex:2;
-    width: 500px;
-    margin-right: 37%;
+.veg-dish p, .fav-dish p{
     float: right;
+    margin-right: 9px;
+    align-items: center;
+    font-size: 17px;
+}
+input[type=checkbox] {
+    padding-left: 2px;
+}
+.veg-dish:hover{
+    color: green;
+    cursor: pointer;
+}
+.fav-dish:hover{
+    color: red;
+    cursor: pointer;
+}
+.recommended-menu{
+    width: 260px;
+    list-style: none;
+    margin-top: 2%;
+    margin-left: 15%;
+    text-decoration: none;
+    display: inline-block;
+}
+.recommended-menu a:hover{
+    color: orange;
+}
+.vertical-line{
+    margin-top: -10%;
+    border-radius: 1px solid black;
+    height: 600px;
+}
+.recommended-menu li{
+    list-style: none;
+    text-align: right;
+    padding-right: 10%;
+    padding-top: 4%;
+    width: 260px;
+}
+.recommended-menu a{
+    text-decoration: none;
+    padding-right: 10px;
+    color: black;
+}
+.menu{
+    border-left: 1px solid rgba(0,0,0,.2);
+    padding: 0px 30px 0 40px;
+    flex:2;
+    margin-top: 0%;
+    width: 500px;
+    margin-right: 35%;
+    float: right;
+    overflow-y: auto;
+    height: 800px;
+}
+.menu::-webkit-scrollbar {
+    display: none;
 }
 .menu h1 ,.cart h1{
     font-size: 30px;
     color: #171A29;
 }
+.menu p{
+    color: #686b78;
+}
+.item-head{
+    border-bottom: 2px solid black;
+    padding-top: 40px;
+}
+.menu:first-child {
+    margin-top: 0%;
+}
+.item-head:last-child{
+    border-bottom: none;
+}
 .dish{
     margin-top: 40px;
     padding: 25px 0;
-    border-bottom: 1.5px #F6F6F7 solid;
+    border-bottom: 1.5px #eeeef5 solid;
 }
 
 .item-name{
     font-size: 16px;
     padding: 15px;
     padding-left: 0;
+    color: #3e4152;
+    font-weight: 500;
 }
 .item-price{
     font-size: 15px;
+    font-weight: 400;
+    color: #3e4152;
 }
 .item-desc{
     padding-top: 10px;
-    width: 440px;
+    width: 380px;
+    color: rgba(40,44,63,.45);
+    font-size: 1rem;
 }
 .item-pic{
     float:right;
     margin-top: -35%;
-    margin-right: -20%;
+    margin-right: -5%;
 }
 .item-add{
     margin-left: 15%;
@@ -190,11 +287,13 @@ footer{
 
 .cart{
     float: right;
-    width: 350px;
-    margin-top: -700px;
+    margin-right: -55%;
+    width: 320px;
+    margin-top: 40px;
 }
 .cart-head{
     padding-bottom: 6% ;
+    color: #7e808c;
 }
 .cart-desc{
     padding-top: 10%;

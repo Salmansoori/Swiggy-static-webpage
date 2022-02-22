@@ -26,6 +26,9 @@
             </ul>
         </div>
     </header>
+    <div class="home">
+        <a href="#">Home / Bangalore / BTM - Bangalore / Kitchens of Punjab</a>
+    </div>
     <div class="jumbotron">
         <div class="res-img">
             <img src="images/restaurant-photo.jpeg" alt="restaurant-photo" width="260" height="200" float="left">
@@ -58,76 +61,286 @@
             </div>
             <div class="offer-type">25% off | Use code PARTY</div>
         </div>
+        <div class="search">
+            <div class="search-bar">
+                <input type="text" placeholder="Search for dishes...">
+            </div>
+            <div class="veg-dish">
+                <input type="checkbox"> <p>Veg Only</p>
+            </div>
+            <div class="fav-dish">
+                <input type="checkbox"> <p>Favourite</p>
+            </div>
+        </div>
     </div>
-    <div class="search">
-        <div class="search-bar">
-            <input type="text" placeholder="Search for dishes...">
-        </div>
-        <div class="veg-dish">
-            <input type="checkbox">Veg Only
-        </div>
-        <div class="fav-dish">
-            <input type="checkbox">Favourite
-        </div>
+
+    <div class="recommended-menu">
+        <ul id="rec">
+            <li><a href="#recommented"> Recommended </a></li>
+            <li><a href="#platters"> Platters </a></li>
+            <!--
+            <li><a href="#starters"> Starters </a></li>
+            <li><a href="#"> Family Binge Packs </a></li>
+            <li><a href="#"> Main course </a></li>
+            <li><a href="#"> Rice & Indian Breads </a></li>
+            <li><a href="#"> Premium Thails </a></li>
+            <li><a href="#"> Desserts & Beverages </a></li>
+            <li><a href="#"> Starters </a></li>
+            -->
+        </ul>
     </div>
-    <div class="menu">
-        <h1>Recommended</h1>
-        <p>41 items</p>
-        <div class="dish">
-            <div class="item">
-                <div class="item-name">Veg Platter</div>
-                <div class="item-price"> $699</div>
-                <div class="item-desc"> An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara,
-                    3 pieces of Veg Seekh and 3 pieces of Malai Chaap.</div>
+    <div class="menu" id="menu">
+        <div id="recommended" class="item-head">
+            <div>
+                <h1>Recommended</h1>
+                <p>41 items</p>
             </div>
-            <div class="item-pic">
-                <div>
-                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
-                        width="140">
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Veg Platter</div>
+                    <div class="item-price"> $699</div>
+                    <div class="item-desc"> An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara
+                        Bhara,
+                        3 pieces of Veg Seekh and 3 pieces of Malai Chaap.</div>
                 </div>
-                <div class="item-add">
-                    <button>Add</button>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Mix Platter</div>
+                    <div class="item-price"> $799</div>
+                    <div class="item-desc"> An authentic mixed platter with 3 pieces of Barnala Methi Chicken, 3 pieces
+                        of
+                        Chicken Kebab, 3 pieces of Hara Bhara and 3 pieces of Paneer Tikka.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dish">
-            <div class="item">
-                <div class="item-name">Non Veg Platter</div>
-                <div class="item-price"> $899</div>
-                <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
-                    pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+        <div id="platters" class="item-head">
+            <div>
+                <h1>Platters</h1>
+                <p>5 items</p>
             </div>
-            <div class="item-pic">
-                <div>
-                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
-                        width="140">
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Veg Platter</div>
+                    <div class="item-price"> $699</div>
+                    <div class="item-desc"> An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara
+                        Bhara,
+                        3 pieces of Veg Seekh and 3 pieces of Malai Chaap.</div>
                 </div>
-                <div class="item-add">
-                    <button>Add</button>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Mix Platter</div>
+                    <div class="item-price"> $799</div>
+                    <div class="item-desc"> An authentic mixed platter with 3 pieces of Barnala Methi Chicken, 3 pieces
+                        of
+                        Chicken Kebab, 3 pieces of Hara Bhara and 3 pieces of Paneer Tikka.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dish">
-            <div class="item">
-                <div class="item-name">Mix Platter</div>
-                <div class="item-price"> $799</div>
-                <div class="item-desc"> An authentic mixed platter with 3 pieces of Barnala Methi Chicken, 3 pieces of
-                    Chicken Kebab, 3 pieces of Hara Bhara and 3 pieces of Paneer Tikka.</div>
+        <!--
+        <div id="starters" class="item-head">
+            <div>
+                <h1>Starters</h1>
+                <p>5 items</p>
             </div>
-            <div class="item-pic">
-                <div>
-                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
-                        width="140">
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Veg Platter</div>
+                    <div class="item-price"> $699</div>
+                    <div class="item-desc"> An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara
+                        Bhara,
+                        3 pieces of Veg Seekh and 3 pieces of Malai Chaap.</div>
                 </div>
-                <div class="item-add">
-                    <button>Add</button>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Non Veg Platter</div>
+                    <div class="item-price"> $899</div>
+                    <div class="item-desc"> An authentic non veg platter with 3 pieces of Barnala Mathi Chicken Tikka, 3
+                        pieces of Dhaniya Chicken, 3 pieces of Tawa Chicken and 3 pieces of Chicken Kebab.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dish">
+                <div class="item">
+                    <div class="item-name">Mix Platter</div>
+                    <div class="item-price"> $799</div>
+                    <div class="item-desc"> An authentic mixed platter with 3 pieces of Barnala Methi Chicken, 3 pieces
+                        of
+                        Chicken Kebab, 3 pieces of Hara Bhara and 3 pieces of Paneer Tikka.</div>
+                </div>
+                <div class="item-pic">
+                    <div>
+                        <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/oym4gasbb4hqalqkx9hq"
+                            width="140">
+                    </div>
+                    <div class="item-add">
+                        <button>Add</button>
+                    </div>
                 </div>
             </div>
         </div>
+    -->
     </div>
     <div class="cart">
         <div class="cart-head">
-            <h1>Card Empty</h1>
+            <h1>Cart Empty</h1>
         </div>
         <div class="cart-img">
             <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_480/Cart_empty_-_menu_2x_ejjkf2"
@@ -152,5 +365,5 @@
 
 
 </body>
-
+<script src="script.js"></script>
 </html>
