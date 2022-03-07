@@ -136,7 +136,7 @@ header{
     margin-top: 6%;
     margin-right: 2%;
     width: 25%;
-    height: 100px;
+    height: 120px;
 }
 .offer-head{
     background-color: #272324;
@@ -196,7 +196,7 @@ input[type=text] {
 }
 
 input[type="checkbox"] {
-    margin: 11% 0;
+    margin: 11% 5%;
 }
 
 .veg-dish span, .fav-dish span{
@@ -227,9 +227,6 @@ input[type="checkbox"] {
     margin-left: -4%;
     text-decoration: none;
     display: inline-block;
-}
-.recommended-menu a:hover{
-    color: orange;
 }
 .vertical-line{
     margin-top: -10%;
@@ -350,8 +347,13 @@ footer{
     width: 280px;
     color: rgba(40,44,63,.45);
 }
-
-
+/*
+.scroll-hover{
+    text-decoration: none;
+    padding-right: 10px;
+    color: black;
+}
+*/
 footer img{
     width:140px;
 }
