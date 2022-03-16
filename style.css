@@ -59,7 +59,8 @@ header{
     background-color: #e9e4e4;
     font-size: 11px;
     align-items: center;
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     min-width: 1200px;
 }
 .home a{
@@ -70,6 +71,7 @@ header{
 .restaurant-header{
     background-color: #272324;
     height: 235px;
+    min-width: 1200px;
 }
 .jumbotron{
     display: table;
@@ -150,7 +152,7 @@ header{
     padding: 3% 5%;
 }
 .search{
-    width: 538px;
+    width: 514px;
     height: 40px;
     font-size: 20px;
     margin-top: 3%;
@@ -172,7 +174,7 @@ input[type=text] {
     background-color: white;
    /* float: left; */
     width: 20%;
-    margin-left: 287px;
+    margin-left: 280px;
     margin-top: -40px;
     height: 40px;
     text-align: center;
@@ -247,7 +249,7 @@ input[type="checkbox"] {
 }
 .menu{
     border-left: 1px solid rgba(0,0,0,.2);
-    padding: 0px 30px 0 40px;
+    padding: 0px 30px 0 30px;
     display: table-cell;
     margin-top: 0%;
     width: 42%;
@@ -277,14 +279,18 @@ input[type="checkbox"] {
     border-bottom: none;
 }
 .dish{
-    margin-top: 40px;
-    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 0;
     border-bottom: 1.5px #eeeef5 solid;
+}
+.item{
+    width: 70%;
 }
 
 .item-name{
     font-size: 16px;
-    padding: 15px;
+    padding-bottom: 15px;
     padding-left: 0;
     color: #3e4152;
     font-weight: 500;
@@ -296,24 +302,29 @@ input[type="checkbox"] {
 }
 .item-desc{
     padding-top: 10px;
-    width: 380px;
+   /* width: 380px; */
     color: rgba(40,44,63,.45);
     font-size: 1rem;
 }
+/*
 .item-pic{
     float:right;
-    margin-top: -35%;
-    margin-right: -5%;
+    margin-top: 0%;
 }
+*/
 .item-add{
     margin-left: 15%;
     margin-top: -27%;
     width: 100px;
     height: 40px;
+    position: relative;
+    background-color: #fff;
 }
+/*
 .item-pic img{
     margin-top: 20px;
 }
+*/
 .item-pic button{
     width: 100px;
     height: 40px;
@@ -322,6 +333,7 @@ footer{
     background-color: black;
     display: flex;
     width: 100%;
+    min-width: 1200px;
     justify-content: space-around;
     align-items: center;
 }
@@ -334,8 +346,8 @@ footer{
 .cart{
     display: table-cell;
     float: right;
-    margin-right: -83%;
-    width: 30%;
+    margin-right: -76%;
+    width: 25%;
     margin-top: 40px;
 }
 .cart-head{
@@ -377,4 +389,76 @@ footer ul li{
 }
 footer ul li img {
     width:27px;
+}
+.addBClass{
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #d4d5d9;
+}
+
+.addBSpan {
+    width: 30%;
+    align-self: center;
+    display: inline-block;
+    text-align: center;
+  /*  padding-top: 10px; */
+}
+
+.addBcnt {
+    width: 40%;
+    align-self: center;
+    display: inline-block;
+    text-align: center;
+  /*  padding-top: 10px; */
+}
+
+.cartAfterATC {
+    display: flex;
+    flex-direction: column;
+}
+.cartItem{
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    padding: 4% 0;
+}
+
+.sub-total {
+    display: flex;
+    justify-content: space-between;
+    color: #3d4152;
+    padding: 2% 0;
+}
+
+.cartItem .addBClass {
+    width: 30%;
+    align-items: center;
+}
+
+.cart-item-price {
+    font-size: 15px;
+    align-self: center;
+    color: #535665;
+    width: 30%;
+    text-align: end;
+}
+
+.cart-heading {
+    padding-bottom: 5%;
+}
+.cart-item-cnt{
+    font-size: 12px;
+}
+button.cart-checkout {
+    width: 100%;
+    display: inline-block;
+    height: 50px;
+    background-color: #60b246;
+    color: white;
+    font-size: 15px;
+}
+.cart-item-name{
+    width: 45%;
+    align-self: center;
 }

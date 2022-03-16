@@ -1,27 +1,54 @@
 {
     "menuSection": [
+        {
+            "id":"recommended",
+            "name":"Recommended",
+            "menulist": [
+                {
+                    "id": "r1",
+                    "name": "Veg Platter x",
+                    "cost": "799",
+                    "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
+                    "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
+                },
+                {
+                    "id": "r2",
+                    "name": "Veg Platter y",
+                    "cost": "799",
+                    "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
+                    "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
+                },
+                {
+                    "id": "r3",
+                    "name": "Veg Platter z",
+                    "cost": "799",
+                    "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
+                    "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
+                }
+            ]
+        },
 
         {
             "id":"starters",
             "name":"Starters",
             "menulist": [
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vp1",
+                    "name": "Veg Platter1",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
                 },
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vp2",
+                    "name": "Veg Platter2",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
                 },
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vp3",
+                    "name": "Veg Platter3",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
@@ -33,22 +60,22 @@
             "name":"Main Course",
             "menulist": [
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vpa",
+                    "name": "Veg Platter01",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
                 },
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vpb",
+                    "name": "Veg Platter02",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
                 },
                 {
-                    "id": "vp",
-                    "name": "Veg Platter",
+                    "id": "vpc",
+                    "name": "Veg Platter03",
                     "cost": "799",
                     "desc": "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
                     "img": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0"
