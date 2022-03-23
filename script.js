@@ -206,7 +206,7 @@ let RestaurantModule = (function () {
         dishAddToCart.onclick = function (event) {
             let target = event.target;
             if (target.tagName == 'BUTTON') {
-                Clicked(target);
+                changeAddButton(target);
                 changeCartDivhtml(cartDivBeforeATC);
                 return;
             }
@@ -251,7 +251,7 @@ let RestaurantModule = (function () {
             }
         }
 
-        function Clicked(target) {
+        function changeAddButton(target) {
             const dish = target.closest(".dish")
             const dishId = dish.getAttribute("id")
             let dishName = ItemProperties.getItemNameById(dishId);
@@ -267,9 +267,6 @@ let RestaurantModule = (function () {
         }
 
         function changeCartDivhtml(cartDivBeforeATC) {
-            const cartDiv = document.getElementById("cart_div");
-            console.log(cartDivBeforeATC)
-
             const addCardDiv = document.createElement("div");
             addCardDiv.id = "cart_div";
             addCardDiv.classList.add("cartAfterATC")
@@ -289,6 +286,8 @@ let RestaurantModule = (function () {
             cartHeadDiv.appendChild(cartItemCnt);
             addCardDiv.appendChild(cartHeadDiv);
 
+            const cartItemListDiv = document.createElement("div")
+            cartItemListDiv.classList.add("cart-item-list");
 
             for (let ind = 0; ind < cartItems.length; ind++) {
                 const cartItemDiv = document.createElement("div");
@@ -309,10 +308,9 @@ let RestaurantModule = (function () {
                 const itemPriceText = document.createTextNode(parseInt(cartItems[ind].price) * itemCount.get(cartItems[ind].id));
                 itemPrice.appendChild(itemPriceText);
                 cartItemDiv.appendChild(itemPrice);
-                addCardDiv.appendChild(cartItemDiv);
-
+                cartItemListDiv.appendChild(cartItemDiv); 
             };
-
+            addCardDiv.appendChild(cartItemListDiv);
             const cartSubTotalDiv = document.createElement("div");
             cartSubTotalDiv.classList.add("sub-total")
             const cartSubTotalHead = document.createElement("h3");
