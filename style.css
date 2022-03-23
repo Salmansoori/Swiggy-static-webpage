@@ -1,14 +1,17 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: ProximaNova, sans-serif, Helvetica Neue;
 }
 header{
-    padding: 30px;
+    padding: 30px 0;
     height: 15px;
     display: table;
-    width: 97%;
+    width: 100%;
+    margin: 0 auto;
    /* table-layout: fixed; */
     min-width: 1200px;
+    max-width: 1200px;
    /* box-shadow: 0px 25px #e9e4e4; */
 }
 .left-nav {
@@ -16,7 +19,7 @@ header{
     float: left;
     height: 30px;
     width:40% ;
-    margin-left: 12.5%;
+   /* margin-left: 12.5%; */
 }
 .left-nav a{
     text-decoration: none;
@@ -25,14 +28,14 @@ header{
 .right-nav{
     display: table-cell;
     float: right;
-    margin-right: 6%;
+  /*  margin-right: 7%; */
     width: 20%;
 }
 .right-nav li{
     float: left;
     text-align: center;
     list-style: none;
-    margin-right: 40px;
+    margin: 0 21px;
 }
 .left-nav li{
     float: left;
@@ -59,7 +62,8 @@ header{
     background-color: #e9e4e4;
     font-size: 11px;
     align-items: center;
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     min-width: 1200px;
 }
 .home a{
@@ -70,6 +74,7 @@ header{
 .restaurant-header{
     background-color: #272324;
     height: 235px;
+    min-width: 1200px;
 }
 .jumbotron{
     display: table;
@@ -77,7 +82,6 @@ header{
     table-layout: fixed;
    /* background-color: #272324; */
     color: white;
-    height: 100%;
     max-width: 1200px;
     min-width: 1200px;
     position: relative;
@@ -87,7 +91,7 @@ header{
     display: table-cell;
     float: left;
    /* margin-left: 16%; */
-    padding-top: 35px;
+    padding: 35px 0;
 }
 .res-img img{
     width: 260px;
@@ -96,7 +100,7 @@ header{
 .restaurant{
     display: table-cell;
     float: left;
-    padding:35px;
+    padding:35px 35px 0 35px;
 }
 .about-res{
     padding: 8px 2px;
@@ -105,15 +109,26 @@ header{
 .res-loc{
     padding: 2px;
 }
+.res-del-cost{
+    display: table;
+}
 .res-rating, .res-del-time{
-    float: left;
+    /* float: left; */
+    display: table-cell;
     border-right: 1px solid white;
     padding-top: 10px;
-    padding-left:10px;
+    width: 150px;
+}
+.res-del-time{
+    display: table-cell;
+    border-right: 1px solid white;
+    padding-top: 10px;
+    padding-left: 10px;
     width: 150px;
 }
 .res-order-cost{
-    float: left;
+    /* float: left; */
+    display: table-cell;
     padding-top: 10px;
     padding-left: 10px;
     width: 150px;
@@ -126,7 +141,7 @@ header{
     margin-top: 6%;
     margin-right: 2%;
     width: 25%;
-    height: 100px;
+    height: 120px;
 }
 .offer-head{
     background-color: #272324;
@@ -137,36 +152,35 @@ header{
     margin-left: -5px;
 }
 .offer-type{
-    padding: 2%;
+    padding: 3% 5%;
 }
 .search{
-    width: 538px;
+    width: 514px;
     height: 40px;
     font-size: 20px;
-    margin-left: 24.5%;
-    margin-top: -2%;
+    margin-top: 3%;
 }
 .search-bar{
-    /*float: left; */
+    /*float: left;
     width: 254px;
-    height: 40px;
+    height: 40px; */
+    display: inline;
 }
 input[type=text] {
     width: 220px;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border: none;
     background-color: white;
     font-size: 17px;
 }
 .veg-dish{
     background-color: white;
-    float: left;
+   /* float: left; */
     width: 20%;
-    margin-left: 287px;
-    margin-top: 0px;
+    margin-left: 280px;
+    margin-top: -40px;
     height: 40px;
     text-align: center;
-    padding-top: 1%;
     color: black;
 }
 .fav-dish{
@@ -175,10 +189,9 @@ input[type=text] {
     background-color: white;
     width: 20%;
     color: black;
-    margin-top: 0px;
+    margin-top: -40px;
     height: 40px;
     text-align: center;
-    padding-top: 1%;
 }
 .veg-dish p, .fav-dish p{
     float: right;
@@ -186,9 +199,15 @@ input[type=text] {
     align-items: center;
     font-size: 17px;
 }
-input[type=checkbox] {
-    padding-left: 2px;
+
+input[type="checkbox"] {
+    margin: 11% 5%;
 }
+
+.veg-dish span, .fav-dish span{
+    font-size: 16px;
+}
+
 .veg-dish:hover{
     color: green;
     cursor: pointer;
@@ -200,7 +219,6 @@ input[type=checkbox] {
 .menu-section{
     display: table;
     table-layout: fixed;
-    width: 100%;
     min-width: 1200px;
     position: relative;
     margin: 0 auto;
@@ -214,9 +232,6 @@ input[type=checkbox] {
     margin-left: -4%;
     text-decoration: none;
     display: inline-block;
-}
-.recommended-menu a:hover{
-    color: orange;
 }
 .vertical-line{
     margin-top: -10%;
@@ -237,7 +252,7 @@ input[type=checkbox] {
 }
 .menu{
     border-left: 1px solid rgba(0,0,0,.2);
-    padding: 0px 30px 0 40px;
+    padding: 0px 30px 0 30px;
     display: table-cell;
     margin-top: 0%;
     width: 42%;
@@ -267,14 +282,18 @@ input[type=checkbox] {
     border-bottom: none;
 }
 .dish{
-    margin-top: 40px;
-    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 0;
     border-bottom: 1.5px #eeeef5 solid;
+}
+.item{
+    width: 70%;
 }
 
 .item-name{
     font-size: 16px;
-    padding: 15px;
+    padding-bottom: 15px;
     padding-left: 0;
     color: #3e4152;
     font-weight: 500;
@@ -286,24 +305,29 @@ input[type=checkbox] {
 }
 .item-desc{
     padding-top: 10px;
-    width: 380px;
+   /* width: 380px; */
     color: rgba(40,44,63,.45);
     font-size: 1rem;
 }
+/*
 .item-pic{
     float:right;
-    margin-top: -35%;
-    margin-right: -5%;
+    margin-top: 0%;
 }
+*/
 .item-add{
     margin-left: 15%;
     margin-top: -27%;
     width: 100px;
     height: 40px;
+    position: relative;
+    background-color: #fff;
 }
+/*
 .item-pic img{
     margin-top: 20px;
 }
+*/
 .item-pic button{
     width: 100px;
     height: 40px;
@@ -312,6 +336,7 @@ footer{
     background-color: black;
     display: flex;
     width: 100%;
+    min-width: 1200px;
     justify-content: space-around;
     align-items: center;
 }
@@ -324,8 +349,8 @@ footer{
 .cart{
     display: table-cell;
     float: right;
-    margin-right: -83%;
-    width: 30%;
+    margin-right: -76%;
+    width: 25%;
     margin-top: 40px;
 }
 .cart-head{
@@ -337,8 +362,13 @@ footer{
     width: 280px;
     color: rgba(40,44,63,.45);
 }
-
-
+/*
+.scroll-hover{
+    text-decoration: none;
+    padding-right: 10px;
+    color: black;
+}
+*/
 footer img{
     width:140px;
 }
@@ -362,4 +392,79 @@ footer ul li{
 }
 footer ul li img {
     width:27px;
+}
+.addBClass{
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #d4d5d9;
+}
+
+.addBSpan {
+    width: 30%;
+    align-self: center;
+    display: inline-block;
+    text-align: center;
+  /*  padding-top: 10px; */
+}
+
+.addBcnt {
+    width: 40%;
+    align-self: center;
+    display: inline-block;
+    text-align: center;
+  /*  padding-top: 10px; */
+}
+
+.cartAfterATC {
+    display: flex;
+    flex-direction: column;
+}
+.cartItem{
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    padding: 4% 0;
+}
+
+.sub-total {
+    display: flex;
+    justify-content: space-between;
+    color: #3d4152;
+    padding: 2% 0;
+}
+
+.cartItem .addBClass {
+    width: 30%;
+    align-items: center;
+}
+
+.cart-item-price {
+    font-size: 15px;
+    align-self: center;
+    color: #535665;
+    width: 30%;
+    text-align: end;
+}
+
+.cart-heading {
+    padding-bottom: 5%;
+}
+.cart-item-cnt{
+    font-size: 12px;
+}
+button.cart-checkout {
+    width: 100%;
+    display: inline-block;
+    height: 50px;
+    background-color: #60b246;
+    color: white;
+    font-size: 15px;
+}
+.cart-item-name{
+    width: 45%;
+    align-self: center;
+}
+.cart-item-list{
+    overflow-y: auto;
 }
