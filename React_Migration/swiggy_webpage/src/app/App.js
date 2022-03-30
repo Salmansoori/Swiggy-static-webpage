@@ -4,7 +4,7 @@ import Footer from './components/footer';
 import Content from './components/content';
 import restaurantContext from './context/RestaurantContext';
 import cartItemsContext from './context/CartItemsContext';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 const initialItemCount = new Map()
 
@@ -12,6 +12,13 @@ function App() {
 
   const [cart, setCart] = useState([]);
   const [itemCount, setItemCount] = useState(initialItemCount);
+
+  // const contextValue = useMemo(()=>{
+  //     return {
+  //       cart,
+  //       itemCount
+  //     }
+  // }, [cart, itemCount])
 
   const addToCart = (item) => {
     const itemExist = cart.find((cartItem) => cartItem.id === item.id);
