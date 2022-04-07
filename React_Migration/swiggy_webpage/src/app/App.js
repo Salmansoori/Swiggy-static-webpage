@@ -60,7 +60,7 @@ const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, remov
       {
         id: "recommended",
         name: "Recommended",
-        menulist: [
+        menuList: [
           {
             id: "vp1",
             name: "Veg Platter",
@@ -90,7 +90,7 @@ const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, remov
       {
         id: "starters",
         name: "Starters",
-        menulist: [
+        menuList: [
           {
             id: "vpa",
             name: "chicken wings",
@@ -120,7 +120,7 @@ const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, remov
       {
         id: "main course",
         name: "Main Course",
-        menulist: [
+        menuList: [
           {
             id: "vpx",
             name: "main course a",

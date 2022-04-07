@@ -17,14 +17,14 @@ export default function MenuList(props) {
 
 //     const onlyVegItems = produce(restaurant_menu, draft => {
 //         draft.map((menuItem) => {
-//             menuItem.menulist = menuItem.menulist.filter((item) => item.veg === true)
+//             menuItem.menuList = menuItem.menuList.filter((item) => item.veg === true)
 //             return menuItem
 //         })
 //     })
     
     const filteredMenu = useMemo(() => restaurant_menu.map(menuSection => ({
             ...menuSection,
-            menulist: menuSection.menulist.filter((item) => (!onlyVeg || item.veg)),
+            menuList: menuSection.menuList.filter((item) => (!onlyVeg || item.veg)),
         })), [restaurant_menu, onlyVeg])
 
     return (
@@ -34,10 +34,10 @@ export default function MenuList(props) {
                     <div id={menuItem.id} key={menuItem.id} className='item-head'>
                         <div>
                             <h1 className="menu-head">{menuItem.name} </h1>
-                            <p>{menuItem.menulist.length} Items</p>
+                            <p>{menuItem.menuList.length} Items</p>
                         </div>
                         {
-                            menuItem.menulist.map((item) => (
+                            menuItem.menuList.map((item) => (
                                 <Dish key={item.id} item={item} />
                             ))
                         }
