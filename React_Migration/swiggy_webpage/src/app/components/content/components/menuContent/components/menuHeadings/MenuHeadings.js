@@ -8,8 +8,8 @@ export default function MenuHeadings() {
     const menuCategories = getItemCategories(restaurant_menu_section);
     return (
         <>
-            <div className="recommended-menu">
-                <div className="recommended-menu-list">
+            <div className="menu-headings">
+                <div className="menu-headings-list">
                     <ul id="rec">
                         {menuCategories.map((item) => (
                             <li key={item.categoryId}>

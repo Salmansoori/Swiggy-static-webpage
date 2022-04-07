@@ -5,7 +5,7 @@ import cartItemsContext from '../../../../../../../context/CartItemsContext';
 export default function Dish(props) {
 
     const {item} = props
-    const {cart, setCart, itemCount, setItemCount, addToCart, removeFromCart} = useContext(cartItemsContext)
+    const {cart, itemCount, addToCart, removeFromCart} = useContext(cartItemsContext)
 
     return (
         <div className="dish" id={item.id}>

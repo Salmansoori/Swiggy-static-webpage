@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useContext } from 'react';
 import restaurantContext from '../../../../context/RestaurantContext';
 
-export default function MenuHeader() {
+export default function MenuHeader(props) {
     const restaurant_data = useContext(restaurantContext);
     const restaurant_details = restaurant_data.restaurant_details
     const { restaurant_name, restaurant_type, restaurant_address, restaurant_pic, restaurant_ratings, ratings_count, average_cost_of_two_items, offerList } = restaurant_details
+    const {onlyVeg, setOnlyVeg} = props
+
     return (
         <>
             <div className="home">
@@ -43,7 +45,7 @@ export default function MenuHeader() {
                                 <input type="text" placeholder="Search for dishes..." />
                             </div>
                             <div className="veg-dish">
-                                <input type="checkbox" />
+                                <input type="checkbox" checked={onlyVeg} onChange={ useCallback((e)=>setOnlyVeg(e.target.checked),[onlyVeg])} />
                                 <span>Veg Only</span>
                             </div>
                             <div className="fav-dish">

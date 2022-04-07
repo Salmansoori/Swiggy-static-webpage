@@ -4,7 +4,7 @@ import Footer from './components/footer';
 import Content from './components/content';
 import restaurantContext from './context/RestaurantContext';
 import cartItemsContext from './context/CartItemsContext';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 const initialItemCount = new Map()
 
@@ -13,40 +13,34 @@ function App() {
   const [cart, setCart] = useState([]);
   const [itemCount, setItemCount] = useState(initialItemCount);
 
-  // const contextValue = useMemo(()=>{
-  //     return {
-  //       cart,
-  //       itemCount
-  //     }
-  // }, [cart, itemCount])
-
-  const addToCart = (item) => {
-    const itemExist = cart.find((cartItem) => cartItem.id === item.id);
-    if (itemExist) {
-        setItemCount(itemCount.set(item.id, itemCount.get(item.id)+1))
-        setCart(cart.map((cartItem) =>
-            item.id === cartItem.id ?
-                { ...itemExist, quantity: itemExist.quantity + 1 } :
-                cartItem));
+  const addToCart = useCallback((item) => {
+    //  const itemExist = cart.find((cartItem) => cartItem.id === item.id);    
+    if (itemCount.get(item.id)) {
+      setItemCount(itemCount.set(item.id, itemCount.get(item.id) + 1))
+      setCart(cart.map((cartItem) =>
+        item.id === cartItem.id ?
+          { ...cartItem, quantity: cartItem.quantity + 1 } :
+          cartItem));
     }
     else {
-        setItemCount(itemCount.set(item.id, 1))
-        setCart([...cart, { ...item, quantity: 1 }]);
+      setItemCount(itemCount.set(item.id, 1))
+      setCart([...cart, { ...item, quantity: 1 }]);
     }
-}
+  }, [cart]);
 
-const removeFromCart = (item) => {
-    const itemExist = cart.find((cartItem) => cartItem.id === item.id);
-    if(itemExist.quantity === 1){
-        itemCount.delete(item.id)
-        setCart(cart.filter((cartItem) => cartItem.id !== item.id));
+  const removeFromCart = useCallback((item) => {
+    //  const itemExist = cart.find((cartItem) => cartItem.id === item.id);
+    if (itemCount.get(item.id) === 1) {
+      itemCount.delete(item.id)
+      setCart(cart.filter((cartItem) => cartItem.id !== item.id));
     }
-    else{
-        setItemCount(itemCount.set(item.id, itemCount.get(item.id)-1))
-        setCart(cart.map((cartItem)=> item.id === cartItem.id ? {...itemExist, quantity:itemExist.quantity-1}: cartItem))
-    }    
-}
+    else {
+      setItemCount(itemCount.set(item.id, itemCount.get(item.id) - 1))
+      setCart(cart.map((cartItem) => item.id === cartItem.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem))
+    }
+  }, [cart])
 
+const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, removeFromCart }},[cart, itemCount, addToCart, removeFromCart])
 
 
   const KITCHEN_OF_PUNJAB = {
@@ -73,20 +67,23 @@ const removeFromCart = (item) => {
             cost: "799",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
           {
             id: "vp2",
             name: "Non Veg Platter",
-            cost: "799",
+            cost: "599",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: false,
           },
           {
-            id: "vp3",
-            name: "Mix Veg Platter",
+            id: "vpx",
+            name: "main course a",
             cost: "799",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
         ]
       },
@@ -96,24 +93,27 @@ const removeFromCart = (item) => {
         menulist: [
           {
             id: "vpa",
-            name: "Veg starter",
+            name: "chicken wings",
             cost: "799",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: false,
           },
           {
             id: "vpb",
-            name: "xyz",
-            cost: "799",
+            name: "french fries",
+            cost: "499",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
           {
             id: "vpc",
             name: "Starter",
-            cost: "799",
+            cost: "399",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
         ]
       },
@@ -127,39 +127,45 @@ const removeFromCart = (item) => {
             cost: "799",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
           {
             id: "vpy",
             name: "main course b",
-            cost: "799",
+            cost: "299",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: false,
           },
           {
             id: "vpz",
             name: "main course c",
-            cost: "799",
+            cost: "299",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: false,
           },
           {
             id: "vpza",
             name: "main course d",
-            cost: "799",
+            cost: "199",
             desc: "An authentic veg platter with 3 pieces of Paneer Achari, 3 pieces of Hara Bhara, 3 pieces of Veg Seekh and 3 pieces of Malai Chaap.",
             img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/zcena4m8ccnauxcn8av0",
+            veg: true,
           },
         ]
       },
     ]
   }
 
+  const restaurantContextValue = useMemo(()=>{ return KITCHEN_OF_PUNJAB},[KITCHEN_OF_PUNJAB]);
+
   return (
     <div className="App">
       <Header />
-      <restaurantContext.Provider value={KITCHEN_OF_PUNJAB}>
-        <cartItemsContext.Provider value={{cart, setCart, itemCount, setItemCount, addToCart, removeFromCart}}>
-          <Content/>
+      <restaurantContext.Provider value={restaurantContextValue}>
+        <cartItemsContext.Provider value={cartContextValue}>
+          <Content />
         </cartItemsContext.Provider>
       </restaurantContext.Provider>
       <Footer />

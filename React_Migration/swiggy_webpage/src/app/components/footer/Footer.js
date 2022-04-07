@@ -14,8 +14,8 @@ export default function Footer() {
                 <ul>
                     <li><img id="fb" src={fb} /></li>
                     <li><img id="ig" src={insta} /></li>
-                    <li><img id="pin" src={pint.png} /></li>
-                    <li><img id="twitter" src={twitter.png} /></li>
+                    <li><img id="pin" src={pint} /></li>
+                    <li><img id="twitter" src={twitter} /></li>
                 </ul>
             </div>
         </footer>

@@ -1,31 +1,63 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useMemo, useRef } from 'react'
 import restaurantContext from '../../../../../../context/RestaurantContext'
 import Dish from './components/Dish';
+import produce from "immer";
 
 export default function MenuList(props) {
     const restaurant_data = useContext(restaurantContext);
     const restaurant_menu = restaurant_data.menuSection;
+    const { onlyVeg } = props
 
     const scrollRef = useRef();
     useEffect(() => {
-      scrollRef.current.addEventListener("scroll", (e) => {
-         handleScrollEvent();
-      });
+        window.addEventListener("scroll", (e) => {
+            handleScrollEvent();
+        });
     }, []);
+
+    const onlyVegItems = produce(restaurant_menu, draft => {
+        draft.map((menuItem) => {
+            menuItem.menulist = menuItem.menulist.filter((item) => item.veg === true)
+            return menuItem
+        })
+    })
+
+    // const filterVegitem = useCallback((menuList) =>{
+    //     return  menuList.filter((item)=> item.veg === true)
+    // },[restaurant_menu])
 
     return (
         <div className="menu" id="menu" ref={scrollRef}>
-            {restaurant_menu.map((menuItem) => (
-                <div id={menuItem.id} key={menuItem.id} className='item-head'>
-                    <div>
-                        <h1 className="menu-head">{menuItem.name}</h1>
-                        <p>{menuItem.menulist.length}</p>
+            {onlyVeg ?
+                onlyVegItems.map((menuItem) => (
+                    <div id={menuItem.id} key={menuItem.id} className='item-head'>
+                        <div>
+                            <h1 className="menu-head">{menuItem.name} </h1>
+                            <p>{menuItem.menulist.length} Items</p>
+                        </div>
+                        {
+                            menuItem.menulist.map((item) => (
+                                <Dish key={item.id} item={item} />
+                            ))
+                        }
                     </div>
-                    {menuItem.menulist.map((item) => (
-                        <Dish key={item.id} item={item} />
-                    ))}
-                </div>
-            ))}
+                )) :
+
+                restaurant_menu.map((menuItem) => (
+                    <div id={menuItem.id} key={menuItem.id} className='item-head'>
+                        <div>
+                            <h1 className="menu-head">{menuItem.name} </h1>
+                            <p>{menuItem.menulist.length} Items</p>
+                        </div>
+                        {
+                            menuItem.menulist.map((item) => (
+                                <Dish key={item.id} item={item} />
+                            ))
+                        }
+                    </div>
+                ))
+
+            }
         </div>
     )
 }
@@ -47,7 +79,7 @@ function handleScrollEvent() {
     for (let i = 0; i < leftSectionList.length; i++) {
         let currLeftItem = leftSectionList[i].childNodes[0].getAttribute("href");
         leftSectionList[i].childNodes[0].style.color = "black";
-       // console.log(currMenuitem, currLeftItem)
+        // console.log(currMenuitem, currLeftItem)
         if (currLeftItem.includes(currMenuitem)) {
             leftSectionList[i].childNodes[0].style.color = "orange";
         }
