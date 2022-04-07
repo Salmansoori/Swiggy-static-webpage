@@ -15,35 +15,22 @@ export default function MenuList(props) {
         });
     }, []);
 
-    const onlyVegItems = produce(restaurant_menu, draft => {
-        draft.map((menuItem) => {
-            menuItem.menulist = menuItem.menulist.filter((item) => item.veg === true)
-            return menuItem
-        })
-    })
-
-    // const filterVegitem = useCallback((menuList) =>{
-    //     return  menuList.filter((item)=> item.veg === true)
-    // },[restaurant_menu])
+//     const onlyVegItems = produce(restaurant_menu, draft => {
+//         draft.map((menuItem) => {
+//             menuItem.menulist = menuItem.menulist.filter((item) => item.veg === true)
+//             return menuItem
+//         })
+//     })
+    
+    const filteredMenu = useMemo(() => restaurant_menu.map(menuSection => ({
+            ...menuSection,
+            menulist: menuSection.menulist.filter((item) => (!onlyVeg || item.veg)),
+        })), [restaurant_menu, onlyVeg])
 
     return (
         <div className="menu" id="menu" ref={scrollRef}>
-            {onlyVeg ?
-                onlyVegItems.map((menuItem) => (
-                    <div id={menuItem.id} key={menuItem.id} className='item-head'>
-                        <div>
-                            <h1 className="menu-head">{menuItem.name} </h1>
-                            <p>{menuItem.menulist.length} Items</p>
-                        </div>
-                        {
-                            menuItem.menulist.map((item) => (
-                                <Dish key={item.id} item={item} />
-                            ))
-                        }
-                    </div>
-                )) :
-
-                restaurant_menu.map((menuItem) => (
+            {
+                filteredMenu.map((menuItem) => (
                     <div id={menuItem.id} key={menuItem.id} className='item-head'>
                         <div>
                             <h1 className="menu-head">{menuItem.name} </h1>
