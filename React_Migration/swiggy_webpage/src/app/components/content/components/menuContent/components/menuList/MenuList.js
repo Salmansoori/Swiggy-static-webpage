@@ -1,14 +1,12 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef } from 'react'
+import React, { useContext, useEffect, useMemo } from 'react'
 import restaurantContext from '../../../../../../context/RestaurantContext'
 import Dish from './components/Dish';
-import produce from "immer";
 
 export default function MenuList(props) {
     const restaurant_data = useContext(restaurantContext);
     const restaurant_menu = restaurant_data.menuSection;
     const { onlyVeg } = props
 
-    const scrollRef = useRef();
     useEffect(() => {
         window.addEventListener("scroll", (e) => {
             handleScrollEvent();
@@ -28,7 +26,7 @@ export default function MenuList(props) {
         })), [restaurant_menu, onlyVeg])
 
     return (
-        <div className="menu" id="menu" ref={scrollRef}>
+        <div className="menu" id="menu" >
             {
                 filteredMenu.map((menuItem) => (
                     <div id={menuItem.id} key={menuItem.id} className='item-head'>
@@ -53,9 +51,6 @@ function handleScrollEvent() {
     let leftSection = document.getElementById("rec");
     let leftSectionList = leftSection.getElementsByTagName('li');
     let menuSection = document.getElementsByClassName('item-head');
-    //console.log(menuSection, leftSectionList);
-    let heightFromTop = menuSection[0].getBoundingClientRect().top;
-    let menuDiv = document.getElementById("menu");
     var currMenuitem = "";
     for (let ind = 0; ind < menuSection.length; ind++) {
         let heightFromTop = menuSection[ind].getBoundingClientRect().top;
@@ -66,7 +61,6 @@ function handleScrollEvent() {
     for (let i = 0; i < leftSectionList.length; i++) {
         let currLeftItem = leftSectionList[i].childNodes[0].getAttribute("href");
         leftSectionList[i].childNodes[0].style.color = "black";
-        // console.log(currMenuitem, currLeftItem)
         if (currLeftItem.includes(currMenuitem)) {
             leftSectionList[i].childNodes[0].style.color = "orange";
         }

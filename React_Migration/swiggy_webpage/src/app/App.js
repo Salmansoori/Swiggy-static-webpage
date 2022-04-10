@@ -3,45 +3,10 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Content from './components/content';
 import restaurantContext from './context/RestaurantContext';
-import cartItemsContext from './context/CartItemsContext';
-import { useCallback, useMemo, useState } from 'react';
-
-const initialItemCount = new Map()
+import { useMemo} from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
-
-  const [cart, setCart] = useState([]);
-  const [itemCount, setItemCount] = useState(initialItemCount);
-
-  const addToCart = useCallback((item) => {
-    //  const itemExist = cart.find((cartItem) => cartItem.id === item.id);    
-    if (itemCount.get(item.id)) {
-      setItemCount(itemCount.set(item.id, itemCount.get(item.id) + 1))
-      setCart(cart.map((cartItem) =>
-        item.id === cartItem.id ?
-          { ...cartItem, quantity: cartItem.quantity + 1 } :
-          cartItem));
-    }
-    else {
-      setItemCount(itemCount.set(item.id, 1))
-      setCart([...cart, { ...item, quantity: 1 }]);
-    }
-  }, [cart]);
-
-  const removeFromCart = useCallback((item) => {
-    //  const itemExist = cart.find((cartItem) => cartItem.id === item.id);
-    if (itemCount.get(item.id) === 1) {
-      itemCount.delete(item.id)
-      setCart(cart.filter((cartItem) => cartItem.id !== item.id));
-    }
-    else {
-      setItemCount(itemCount.set(item.id, itemCount.get(item.id) - 1))
-      setCart(cart.map((cartItem) => item.id === cartItem.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem))
-    }
-  }, [cart])
-
-const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, removeFromCart }},[cart, itemCount, addToCart, removeFromCart])
-
 
   const KITCHEN_OF_PUNJAB = {
     restaurant_details: {
@@ -158,17 +123,28 @@ const cartContextValue = useMemo(()=>{ return {cart, itemCount, addToCart, remov
     ]
   }
 
-  const restaurantContextValue = useMemo(()=>{ return KITCHEN_OF_PUNJAB},[KITCHEN_OF_PUNJAB]);
+  const restaurantContextValue = useMemo(() => { return KITCHEN_OF_PUNJAB }, [KITCHEN_OF_PUNJAB]);
 
   return (
     <div className="App">
-      <Header />
-      <restaurantContext.Provider value={restaurantContextValue}>
-        <cartItemsContext.Provider value={cartContextValue}>
-          <Content />
-        </cartItemsContext.Provider>
-      </restaurantContext.Provider>
-      <Footer />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header />
+            <restaurantContext.Provider value={restaurantContextValue}>
+              <Content />
+            </restaurantContext.Provider>
+            <Footer />
+          </>}>
+        </Route>
+        <Route path="/SignIn" element={
+          <>
+            <h1>please SignIn</h1>
+            <button><Link to="/">Back</Link></button>
+          </>
+        }>
+        </Route>
+      </Routes>
     </div>
   );
 }

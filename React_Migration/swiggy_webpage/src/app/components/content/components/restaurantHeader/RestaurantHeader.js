@@ -11,12 +11,12 @@ export default function MenuHeader(props) {
     return (
         <>
             <div className="home">
-                <a href="#">Home / Bangalore / BTM - Bangalore / Kitchens of Punjab</a>
+                <a href="/">Home / Bangalore / BTM - Bangalore / Kitchens of Punjab</a>
             </div>
             <div className="restaurant-header">
                 <div className="jumbotron" id="jumbotron">
                     <div className="res-img">
-                        <img src={restaurant_pic} alt="restaurant-photo" />
+                        <img src={restaurant_pic} alt="restaurant_photo" />
                     </div>
                     <div className="restaurant">
                         <div>

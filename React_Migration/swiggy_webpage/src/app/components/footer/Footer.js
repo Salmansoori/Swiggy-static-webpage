@@ -8,14 +8,14 @@ import twitter from "../../images/twitter.png";
 export default function Footer() {
     return (
         <footer>
-            <div className="img"><img src={logo} /></div>
+            <div className="img"><img src={logo} alt='logo' /></div>
             <p>©2022 Swiggy</p>
             <div className="socials">
                 <ul>
-                    <li><img id="fb" src={fb} /></li>
-                    <li><img id="ig" src={insta} /></li>
-                    <li><img id="pin" src={pint} /></li>
-                    <li><img id="twitter" src={twitter} /></li>
+                    <li><img id="fb" src={fb} alt="fb" /></li>
+                    <li><img id="ig" src={insta} alt='insta' /></li>
+                    <li><img id="pin" src={pint} alt='pinterest' /></li>
+                    <li><img id="twitter" src={twitter} alt='twitter' /></li>
                 </ul>
             </div>
         </footer>

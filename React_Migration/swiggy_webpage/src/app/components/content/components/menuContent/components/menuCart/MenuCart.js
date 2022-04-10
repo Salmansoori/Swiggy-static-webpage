@@ -1,15 +1,15 @@
 import React from 'react';
-import { useState, useContext } from 'react';
-import cartItemsContext from '../../../../../../context/CartItemsContext';
+import { connect } from 'react-redux';
+import { selectCartItems } from '../../../../../../reducers/selectors/Cart';
 import Cart from './components/Cart';
 
-export default function MenuCart(props) {
+function MenuCart(props) {
     //console.log(props)
-    const {cart, setCart} = useContext(cartItemsContext);
+    const {cart} = props
     const cartItems = cart;
     return (
         <div className="cart">
-            {cartItems.length > 0 ? <Cart cartItems={cartItems}  addToCart={props.addToCart} removeFromCart={props.removeFromCart} /> :
+            {cartItems.length > 0 ? <Cart cartItems={cartItems} /> :
                 <div id="cart_div">
                     <div className="cart-head">
                         <h1>Cart Empty</h1>
@@ -26,3 +26,11 @@ export default function MenuCart(props) {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        cart: selectCartItems(state),
+    }
+}
+
+export default connect(mapStateToProps)(MenuCart);

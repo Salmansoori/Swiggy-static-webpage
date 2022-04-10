@@ -1,5 +1,6 @@
 import React from 'react';
 import Swiggy from  "../../images/Swiggy-logo.png";
+import { Link } from "react-router-dom"
 
 export default function Header() {
     return (
@@ -7,22 +8,22 @@ export default function Header() {
             <div className="left-nav">
                 <ul>
                     <li>
-                        <a href="#"><img src={Swiggy} alt="Swiggy-logo" />
-                        </a>
+                        <Link to="#"><img src={Swiggy} alt="Swiggy-logo" />
+                        </Link>
                     </li>
                     <li>
-                        <a href=""><b>Set location</b></a>
+                        <Link to=""><b>Set location</b></Link>
                     </li>
                     <li>
-                        <a href="">click here to choose location</a>
+                        <Link to="">click here to choose location</Link>
                     </li>
                 </ul>
             </div>
             <div className="right-nav">
                 <ul>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><Link to="#">Help</Link></li>
+                    <li><Link to="/SignIn">Sign In</Link></li>
+                    <li><Link to="#">Cart</Link></li>
                 </ul>
             </div>
         </header>

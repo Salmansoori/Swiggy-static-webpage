@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react'
-import MinusPlusQuant from './MinusPlusQuant';
-import cartItemsContext from '../../../../../../../context/CartItemsContext';
+import React from 'react'
+import Button from './Button';
+import { addToCart, removeFromCart } from '../../../../../../../actions';
+import { connect } from "react-redux"
+import { selectCartItemCount} from '../../../../../../../reducers/selectors/Cart';
 
-export default function Dish(props) {
-
-    const {item} = props
-    const {cart, itemCount, addToCart, removeFromCart} = useContext(cartItemsContext)
-
+function Dish(props) {
+    const {item, itemCount, addToCart} = props
+    const itemQuantity = itemCount.get(item.id);
+    
     return (
         <div className="dish" id={item.id}>
             <div className="item">
@@ -16,14 +17,28 @@ export default function Dish(props) {
             </div>
             <div className="item-pic">
                 <div>
-                    <img src={item.img}
+                    <img src={item.img} alt='item'
                         width="140" />
                 </div>
                 <div className="item-add">
-                    {itemCount.get(item.id) ? <MinusPlusQuant item={item} />: <button onClick={()=>addToCart(item)}>Add</button>
+                    {itemQuantity > 0 ? <Button item={item} quantity={itemQuantity}/>: <button onClick={()=>addToCart(item)}>Add</button>
                     }
                 </div>
             </div>
         </div>
     )
 }
+
+const mapStateToProps = state =>{
+    return {
+        itemCount: selectCartItemCount(state),
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    return {
+        addToCart: (item) => dispatch(addToCart(item)),
+        removeFromCart: (item) => dispatch(removeFromCart(item))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Dish);

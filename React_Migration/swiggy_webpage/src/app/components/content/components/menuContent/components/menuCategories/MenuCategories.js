@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
-import { useContext } from 'react';
+import React, { useContext } from 'react'
 import restaurantContext from '../../../../../../context/RestaurantContext';
 
-export default function MenuHeadings() {
+export default function MenuCategories() {
     const restaurant_data = useContext(restaurantContext);
     const restaurant_menu_section = restaurant_data.menuSection;
-    const menuCategories = getItemCategories(restaurant_menu_section);
+    const MenuCategories = getItemCategories(restaurant_menu_section);
     return (
         <>
             <div className="menu-headings">
                 <div className="menu-headings-list">
                     <ul id="rec">
-                        {menuCategories.map((item) => (
+                        {MenuCategories.map((item) => (
                             <li key={item.categoryId}>
                                 <a href={"#"+item.categoryId} key={item.categoryId}>
                                 {item.categoryName}
