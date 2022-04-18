@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
-import { useContext } from 'react';
-import restaurantContext from '../../../../context/RestaurantContext';
+import { connect } from 'react-redux';
+import { updateOnlyVegPreference } from '../../../../actions';
+import { selectOnlyVeg } from '../../../../reducers/selectors/OnlyVeg';
+import { selectRestaurantData } from '../../../../reducers/selectors/Restaurant';
 
-export default function MenuHeader(props) {
-    const restaurant_data = useContext(restaurantContext);
-    const restaurant_details = restaurant_data.restaurant_details
+function RestaurantHeader(props) {
+    const {onlyVeg, setOnlyVeg, restaurantData} = props
+    const restaurant_details = restaurantData.KITCHEN_OF_PUNJAB.restaurant_details
     const { restaurant_name, restaurant_type, restaurant_address, restaurant_pic, restaurant_ratings, ratings_count, average_cost_of_two_items, offerList } = restaurant_details
-    const {onlyVeg, setOnlyVeg} = props
 
     return (
         <>
@@ -45,7 +46,7 @@ export default function MenuHeader(props) {
                                 <input type="text" placeholder="Search for dishes..." />
                             </div>
                             <div className="veg-dish">
-                                <input type="checkbox" checked={onlyVeg} onChange={ useCallback((e)=>setOnlyVeg(e.target.checked),[onlyVeg])} />
+                                <input type="checkbox" checked={onlyVeg} onChange={useCallback((e)=>{setOnlyVeg(e.target.checked)},[onlyVeg])} />
                                 <span>Veg Only</span>
                             </div>
                             <div className="fav-dish">
@@ -67,3 +68,16 @@ export default function MenuHeader(props) {
         </>
     )
 }
+
+const mapStateToProps = (state) =>{
+    return {
+        onlyVeg: selectOnlyVeg(state),
+        restaurantData: selectRestaurantData(state)
+    }
+}
+
+const mapDispatchToProps = {
+        setOnlyVeg: updateOnlyVegPreference
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantHeader);

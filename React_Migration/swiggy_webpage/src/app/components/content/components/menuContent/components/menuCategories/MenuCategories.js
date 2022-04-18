@@ -1,16 +1,19 @@
-import React, { useContext } from 'react'
-import restaurantContext from '../../../../../../context/RestaurantContext';
+import React from 'react'
+import { connect } from 'react-redux';
+import { selectRestaurantData } from '../../../../../../reducers/selectors/Restaurant';
 
-export default function MenuCategories() {
-    const restaurant_data = useContext(restaurantContext);
-    const restaurant_menu_section = restaurant_data.menuSection;
-    const MenuCategories = getItemCategories(restaurant_menu_section);
+function MenuCategories(props) {
+
+    const {restaurantData} = props;
+    const restaurant_menu_section = restaurantData.KITCHEN_OF_PUNJAB.menuSection;
+    const itemCategories = getItemCategories(restaurant_menu_section);
+
     return (
         <>
             <div className="menu-headings">
                 <div className="menu-headings-list">
                     <ul id="rec">
-                        {MenuCategories.map((item) => (
+                        {itemCategories.map((item) => (
                             <li key={item.categoryId}>
                                 <a href={"#"+item.categoryId} key={item.categoryId}>
                                 {item.categoryName}
@@ -31,3 +34,11 @@ function getItemCategories(menuSection) {
     }
     return itemCategories;
 }
+
+const mapStateToProps = state =>{
+    return {
+        restaurantData: selectRestaurantData(state)
+    }
+}
+
+export default connect(mapStateToProps)(MenuCategories);

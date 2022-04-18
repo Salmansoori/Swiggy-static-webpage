@@ -6,7 +6,7 @@ import Button from '../../menuList/components/Button'
 function Cart(props) {
     const {cart, itemCount} = props
 
-    const subTotal =useCallback((cart) =>{
+    const subTotal =useCallback(() =>{
         let total = 0
         for(let i=0;i<cart.length;i++){
             total=total+cart[i].quantity*cart[i].cost
@@ -14,19 +14,19 @@ function Cart(props) {
         return total
     }, [cart])
 
-    const getTotalItem = useCallback((cart) => {
+    const getTotalItem = useCallback(() => {
         let totalItem = 0
         for(let i=0; i<cart.length; i++){
             totalItem = totalItem + itemCount.get(cart[i].id);
         }
         return totalItem;
-    },[itemCount])
+    },[itemCount, cart])
 
     return (
         <div id="cart_div">
             <div className='cart-heading'>
                 <h2>Cart</h2>
-                <span className='cart-item-cnt'>{getTotalItem(cart)} Items</span>
+                <span className='cart-item-cnt'>{getTotalItem()} Items</span>
             </div>
             <div className='cart-item-list'>
                 {cart.map((item) => (
@@ -39,7 +39,7 @@ function Cart(props) {
             </div>
             <div className='sub-total'>
                 <h3>SubTotal</h3>
-                <span>{subTotal(cart)}</span>
+                <span>{subTotal()}</span>
             </div>
             <div>
                 <button className='cart-checkout'>CHECKOUT</button>

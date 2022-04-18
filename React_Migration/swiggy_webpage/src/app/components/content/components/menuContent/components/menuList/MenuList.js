@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useMemo } from 'react'
-import restaurantContext from '../../../../../../context/RestaurantContext'
+import React, { useEffect, useMemo } from 'react'
+import { connect } from 'react-redux';
+import { selectRestaurantData } from '../../../../../../reducers/selectors/Restaurant';
 import Dish from './components/Dish';
 
-export default function MenuList(props) {
-    const restaurant_data = useContext(restaurantContext);
-    const restaurant_menu = restaurant_data.menuSection;
-    const { onlyVeg } = props
+function MenuList(props) {
+    const { restaurantData, onlyVeg } = props
+    const restaurant_menu = restaurantData.KITCHEN_OF_PUNJAB.menuSection;
 
     useEffect(() => {
         window.addEventListener("scroll", (e) => {
@@ -13,12 +13,6 @@ export default function MenuList(props) {
         });
     }, []);
 
-//     const onlyVegItems = produce(restaurant_menu, draft => {
-//         draft.map((menuItem) => {
-//             menuItem.menuList = menuItem.menuList.filter((item) => item.veg === true)
-//             return menuItem
-//         })
-//     })
     
     const filteredMenu = useMemo(() => restaurant_menu.map(menuSection => ({
             ...menuSection,
@@ -66,3 +60,12 @@ function handleScrollEvent() {
         }
     }
 }
+
+const mapStateToProps = (state) =>{
+    return {
+        onlyVeg: state.veg,
+        restaurantData: selectRestaurantData(state)
+    }
+}
+
+export default connect(mapStateToProps)(MenuList);
